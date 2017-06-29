@@ -1,0 +1,14 @@
+---
+- name: Apt remove resolvconf
+  apt: 
+    name:  resolvconf 
+    state: absent
+  when: ( ansible_os_family == 'Debian' )
+
+- name: Copy /etc/resolv.conf
+  template:
+    src:   resolv.conf.j2
+    dest:  /etc/resolv.conf 
+    owner: root
+    group: root
+    mode:  '0644'

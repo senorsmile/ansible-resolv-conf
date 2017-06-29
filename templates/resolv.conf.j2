@@ -1,0 +1,9 @@
+# This file is managed by Ansible. 
+# All changes can and will eventually be overwritten.
+
+{% if resolvconf_domain is defined %}
+domain {{ resolvconf_domain}}
+{% endif %}
+{% for nameserver in resolvconf_nameservers %}
+nameserver {{ nameserver }}
+{% endfor %}
